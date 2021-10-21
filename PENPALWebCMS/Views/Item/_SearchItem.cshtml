@@ -1,0 +1,111 @@
+﻿@model PENPAL.VM.UserManagement.ItemDetails
+
+@if (Model != null)
+{
+    <style type="text/css">
+        .field-validation-error {
+            color: red;
+        }
+
+        .input-validation-error {
+            background: pink;
+            border: 1px solid red;
+        }
+    </style>
+
+     <!-- Main content -->
+    <section class="content" style="height:100% !important">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary">
+                    @using (Ajax.BeginForm("ManageItemProduct", "Item", null, new AjaxOptions { HttpMethod = "Post", OnSuccess = "LoadSearchResult(data)", UpdateTargetId = "partialOrderViewsd" }, new { @class = "form-horizontal", @id = "formCategory" }))
+                    {
+                        <div class="box-header text-right">
+                            <div class="pull-right text-right pad">
+                            </div>
+                        </div>
+                        <div class="box-body">
+
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger", @style = "background-color: red" })
+                            <div class="row">
+
+                                <div class="row">
+                                    <div>
+
+                                        <div class="form-group">
+                                            <label for="txtStoreName" class="control-label col-xs-4">Category</label>
+                                            <div class="col-md-4">
+                                                @Html.DropDownListFor(m => m.ItemId, new SelectList(ViewBag.ItemDetails, "ItemId", "ItemName"), "Select Category", new { @class = "form-control", @onchange = "GetData(this.value)" })
+                                                <p>
+                                                    @Html.ValidationMessageFor(m => m.ItemId)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /.box-body -->
+                    }
+                </div><!-- /.box -->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12" id="categorySearchResult" style="display:none;">
+                <div class="box box-primary">
+
+                    <div class="box-header text-right">
+                        <div class="pull-right text-right pad">
+                        </div>
+                        <div class="box-title pull-left pad">
+                            <span>Category Wise Mapped Product Result</span>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        <table id="searchProduct" cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-responsive" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th width="7%">
+                                        Item Name
+                                    </th>
+                                    <th width="7%">
+                                        Description
+                                    </th>
+                                    <th width="6%">
+                                        Brand
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+                    </div><!-- /.box-body -->
+
+                </div><!-- /.box -->
+            </div>
+        </div>
+
+    </section>
+
+
+}
+@*<script type="text/javascript">
+    //Get Category Wise Data
+    function GetData(value) {
+        debugger;
+        $.ajax({
+            url: $('#formCategory').attr('action'),
+            type: $('#formCategory').attr('method'),
+            data: $('#formCategory').serialize(),
+            success: function (data) {
+                LoadSearchResult(data);
+            }
+        });
+    }
+</script>*@

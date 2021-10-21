@@ -1,0 +1,10 @@
+D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\bin\Release\PENPAL.VM.dll
+D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\bin\Release\PENPAL.VM.pdb
+D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\obj\Release\PENPAL.VM.dll
+D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\obj\Release\PENPAL.VM.pdb
+D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\obj\Release\PENPAL.VM.csprojResolveAssemblyReference.cache
+F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\bin\Release\PENPAL.VM.dll
+F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\bin\Release\PENPAL.VM.pdb
+F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\obj\Release\PENPAL.VM.csprojResolveAssemblyReference.cache
+F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\obj\Release\PENPAL.VM.dll
+F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.VM\obj\Release\PENPAL.VM.pdb

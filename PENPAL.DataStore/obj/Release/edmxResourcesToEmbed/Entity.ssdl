@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WYRRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="chat_user_connection">
+    <Key>
+      <PropertyRef Name="connection_id" />
+    </Key>
+    <Property Name="connection_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sender_id" Type="bigint" Nullable="false" />
+    <Property Name="receiver_id" Type="bigint" Nullable="false" />
+    <Property Name="connection_status" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="created_by" Type="bigint" />
+    <Property Name="updated_by" Type="bigint" />
+  </EntityType>
+  <EntityType Name="cometchat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="from" Type="int" Nullable="false" />
+    <Property Name="to" Type="int" Nullable="false" />
+    <Property Name="message" Type="text" Nullable="false" />
+    <Property Name="sent" Type="int" Nullable="false" />
+    <Property Name="read" Type="tinyint" Nullable="false" />
+    <Property Name="direction" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WYRR.dbo.cometchat_recentconversation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="cometchat_recentconversation">
+    <Key>
+      <PropertyRef Name="convo_id" />
+      <PropertyRef Name="id" />
+      <PropertyRef Name="from" />
+      <PropertyRef Name="to" />
+      <PropertyRef Name="message" />
+      <PropertyRef Name="sent" />
+    </Key>
+    <Property Name="convo_id" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="from" Type="int" Nullable="false" />
+    <Property Name="to" Type="int" Nullable="false" />
+    <Property Name="message" Type="text" Nullable="false" />
+    <Property Name="sent" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ErrorLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LogType" Type="nvarchar" MaxLength="50" />
+    <Property Name="IpAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="StackTrace" Type="nvarchar(max)" />
+    <Property Name="InnerException" Type="nvarchar(max)" />
+    <Property Name="ExceptionType" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="logTransactionDetails">
+    <Key>
+      <PropertyRef Name="TxnLogID" />
+    </Key>
+    <Property Name="TxnLogID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TxnID" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="TxnType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="SenderAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ReceiverAddress" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="AmountGiven" Type="decimal" Precision="38" Scale="18" Nullable="false" />
+    <Property Name="CurrencyGiven" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AmountReceived" Type="decimal" Precision="38" Scale="18" Nullable="false" />
+    <Property Name="CurrencyReceived" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PaypalMargin" Type="nvarchar" MaxLength="10" />
+    <Property Name="PaypalMarginAmt" Type="decimal" Precision="38" Scale="18" />
+    <Property Name="PaypalClientMargin" Type="nvarchar" MaxLength="10" />
+    <Property Name="PaypalClientMarginAmt" Type="decimal" Precision="38" Scale="18" />
+    <Property Name="ChangellyMargin" Type="nvarchar" MaxLength="10" />
+    <Property Name="ChangellyMarginAmt" Type="decimal" Precision="38" Scale="18" />
+    <Property Name="ChangellyClientMargin" Type="nvarchar" MaxLength="10" />
+    <Property Name="ChangellyClientMarginAmt" Type="decimal" Precision="38" Scale="18" />
+    <Property Name="TxnStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TxnDate" Type="datetime" Nullable="false" />
+    <Property Name="LumeninUSD" Type="decimal" Precision="38" Scale="18" />
+    <Property Name="CoinbaseMargin" Type="nvarchar" MaxLength="10" />
+    <Property Name="CoinbaseMarginAmt" Type="decimal" Precision="38" Scale="18" />
+    <Property Name="CoinbaseClientMargin" Type="nvarchar" MaxLength="10" />
+    <Property Name="CoinbaseClientMarginAmt" Type="decimal" Precision="38" Scale="18" />
+    <Property Name="Memo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="mstCountry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar(max)" />
+    <Property Name="CountryCode" Type="nvarchar(max)" />
+    <Property Name="IconImage" Type="nvarchar(max)" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mstUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="CountryCode" Type="nchar" MaxLength="500" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="500" />
+    <Property Name="PublicKey" Type="nvarchar" MaxLength="200" />
+    <Property Name="SecretKey" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="IsSocialLogin" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="UserUniqueId" Type="nvarchar" MaxLength="500" />
+    <Property Name="DefaultCurrency" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="avatar" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="newsFeed">
+    <Key>
+      <PropertyRef Name="feedID" />
+    </Key>
+    <Property Name="feedID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="bigint" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="isApproved" Type="bit" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="created_by" Type="bigint" />
+    <Property Name="modified_at" Type="datetime" />
+    <Property Name="modified_by" Type="bigint" />
+  </EntityType>
+  <EntityType Name="OTPTransaction">
+    <Key>
+      <PropertyRef Name="OTPTransactionID" />
+    </Key>
+    <Property Name="OTPTransactionID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="OTP" Type="nvarchar" MaxLength="100" />
+    <Property Name="isVerified" Type="bit" />
+    <Property Name="VerifiedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StellarMasterUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PublicKey" Type="nvarchar" MaxLength="500" />
+    <Property Name="SecretKey" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="TransactionRangeCharges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Range" Type="nvarchar" MaxLength="500" />
+    <Property Name="Fee(Lumen)" Type="bigint" />
+    <Property Name="min" Type="bigint" />
+    <Property Name="max" Type="bigint" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="TransactionSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionPerDay" Type="bigint" />
+    <Property Name="TransactionPerMonth" Type="bigint" />
+    <Property Name="ServiceTaxPerTransaction" Type="nvarchar" MaxLength="500" />
+    <Property Name="MinimumAmountForTransaction" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="PayPalMargin" Type="int" />
+    <Property Name="MinimumAmountForPayPalTransaction" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="EnableAddPayPal" Type="bit" />
+    <Property Name="EnableWithdrawPayPal" Type="bit" />
+    <Property Name="CoinbaseMargin" Type="int" />
+    <Property Name="EnableAddCoinbase" Type="bit" />
+    <Property Name="CoinbaseSendLimit" Type="int" />
+  </EntityType>
+  <EntityType Name="trnUserEventDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventName" Type="nvarchar" MaxLength="500" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="Amount" Type="nvarchar" MaxLength="500" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="trnUserParticipantEventDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="bigint" />
+    <Property Name="ParticipantUserId" Type="bigint" />
+    <Property Name="IsPaymentDone" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="ModifiedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="trnUserTransactionDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SenderUserId" Type="bigint" />
+    <Property Name="ReceiverUserId" Type="bigint" />
+    <Property Name="Amount" Type="nvarchar" MaxLength="500" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="200" />
+    <Property Name="SenderPublicKey" Type="nvarchar" MaxLength="500" />
+    <Property Name="SenderSecretKey" Type="nvarchar" MaxLength="500" />
+    <Property Name="ReceiverPublicKey" Type="nvarchar" MaxLength="500" />
+    <Property Name="TXNID" Type="bigint" />
+    <Property Name="Status" Type="nvarchar" MaxLength="500" />
+    <Property Name="TXNDATE" Type="datetime" />
+    <Property Name="PAYMENTMODE" Type="nvarchar" MaxLength="500" />
+    <Property Name="ISTXNVERIFIED" Type="bit" />
+  </EntityType>
+  <EntityType Name="trnUserTransactionSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="TransactionPerDay" Type="bigint" />
+    <Property Name="TransactionAmountPerDay" Type="numeric" Precision="8" Scale="2" />
+  </EntityType>
+  <EntityType Name="trnUserWalletDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="WalletBalance" Type="nvarchar" MaxLength="500" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Function Name="AcceptRejectResendChatInvite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ConnectionID" Type="bigint" Mode="In" />
+    <Parameter Name="connectionStatus" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetChatInvitesForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetNewsFeeds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetRecentChats" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetRecentChatUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUsersByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="bigint" Mode="In" />
+    <Parameter Name="SearchText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetUserTransactionHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SendChatInviteToUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SenderID" Type="bigint" Mode="In" />
+    <Parameter Name="ReceiverID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="UpdateRecentChat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ConnectionID" Type="bigint" Mode="In" />
+  </Function>
+  <EntityContainer Name="WYRRModelStoreContainer">
+    <EntitySet Name="chat_user_connection" EntityType="Self.chat_user_connection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cometchat" EntityType="Self.cometchat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="logTransactionDetails" EntityType="Self.logTransactionDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mstCountry" EntityType="Self.mstCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mstUser" EntityType="Self.mstUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="newsFeed" EntityType="Self.newsFeed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OTPTransaction" EntityType="Self.OTPTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StellarMasterUser" EntityType="Self.StellarMasterUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionRangeCharges" EntityType="Self.TransactionRangeCharges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionSetting" EntityType="Self.TransactionSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trnUserEventDetails" EntityType="Self.trnUserEventDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trnUserParticipantEventDetails" EntityType="Self.trnUserParticipantEventDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trnUserTransactionDetails" EntityType="Self.trnUserTransactionDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trnUserTransactionSetting" EntityType="Self.trnUserTransactionSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trnUserWalletDetails" EntityType="Self.trnUserWalletDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cometchat_recentconversation" EntityType="Self.cometchat_recentconversation" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [cometchat_recentconversation].[convo_id] AS [convo_id], 
+    [cometchat_recentconversation].[id] AS [id], 
+    [cometchat_recentconversation].[from] AS [from], 
+    [cometchat_recentconversation].[to] AS [to], 
+    [cometchat_recentconversation].[message] AS [message], 
+    [cometchat_recentconversation].[sent] AS [sent]
+    FROM [dbo].[cometchat_recentconversation] AS [cometchat_recentconversation]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

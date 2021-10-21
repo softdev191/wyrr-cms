@@ -1,0 +1,158 @@
+=======================================================================================================
+=============                             Log Entry                    ================================
+========================================================================================================
+ Date      |    Status    | Error Occured(If Any)   | Operation Time   
+========================================================================================================
+
+01-07-2019|Error|192.168.9.133 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|12:28:26
+========================================================================================================
+01-07-2019|Error|192.168.9.133 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|12:34:6
+========================================================================================================
+01-07-2019|Error|192.168.9.133 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|12:34:37
+========================================================================================================
+01-07-2019|Error|192.168.9.133 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|12:44:2
+========================================================================================================
+01-07-2019|Error|192.168.9.133 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|12:48:31
+========================================================================================================
+01-07-2019|Error|192.168.9.133 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|12:52:36
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUserWalletDetails>d__11.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 1015 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3005
+   at System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   at System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|13:1:43
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUSDPrice>d__8.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 805 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|13:1:43
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 839 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|13:1:44
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUserWalletDetails>d__11.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 1015 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3005
+   at System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   at System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|13:11:18
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUSDPrice>d__8.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 805 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|13:11:19
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 839 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|13:11:19
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUserWalletDetails>d__11.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 1015 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3005
+   at System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   at System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:14:9
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUSDPrice>d__8.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 805 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:14:9
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 839 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:14:10
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUserWalletDetails>d__11.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 1015 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3005
+   at System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   at System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:17:24
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUSDPrice>d__8.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 805 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:17:24
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 839 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:17:25
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUserWalletDetails>d__11.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 1015 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3005
+   at System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   at System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:55:24
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetUSDPrice>d__8.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 805 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:55:29
+========================================================================================================
+01-07-2019|Error|192.168.9.133 One or more errors occurred.    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 839 System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- End of inner exception stack trace --- System.AggregateException|15:55:30
+========================================================================================================

@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WYRRModelStoreContainer" CdmEntityContainer="WYRREntities">
+    <EntitySetMapping Name="mstUsers">
+      <EntityTypeMapping TypeName="WYRRModel.mstUser">
+        <MappingFragment StoreEntitySet="mstUser">
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="UserUniqueId" ColumnName="UserUniqueId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DefaultCurrency" ColumnName="DefaultCurrency" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+          <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+          <ScalarProperty Name="IsSocialLogin" ColumnName="IsSocialLogin" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OTPTransactions">
+      <EntityTypeMapping TypeName="WYRRModel.OTPTransaction">
+        <MappingFragment StoreEntitySet="OTPTransaction">
+          <ScalarProperty Name="OTPTransactionID" ColumnName="OTPTransactionID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OTP" ColumnName="OTP" />
+          <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+          <ScalarProperty Name="VerifiedDateTime" ColumnName="VerifiedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trnUserEventDetails">
+      <EntityTypeMapping TypeName="WYRRModel.trnUserEventDetail">
+        <MappingFragment StoreEntitySet="trnUserEventDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trnUserTransactionDetails">
+      <EntityTypeMapping TypeName="WYRRModel.trnUserTransactionDetail">
+        <MappingFragment StoreEntitySet="trnUserTransactionDetails">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SenderUserId" ColumnName="SenderUserId" />
+          <ScalarProperty Name="ReceiverUserId" ColumnName="ReceiverUserId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="SenderPublicKey" ColumnName="SenderPublicKey" />
+          <ScalarProperty Name="SenderSecretKey" ColumnName="SenderSecretKey" />
+          <ScalarProperty Name="ReceiverPublicKey" ColumnName="ReceiverPublicKey" />
+          <ScalarProperty Name="TXNID" ColumnName="TXNID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TXNDATE" ColumnName="TXNDATE" />
+          <ScalarProperty Name="PAYMENTMODE" ColumnName="PAYMENTMODE" />
+          <ScalarProperty Name="ISTXNVERIFIED" ColumnName="ISTXNVERIFIED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trnUserWalletDetails">
+      <EntityTypeMapping TypeName="WYRRModel.trnUserWalletDetail">
+        <MappingFragment StoreEntitySet="trnUserWalletDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="WalletBalance" ColumnName="WalletBalance" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trnUserParticipantEventDetails">
+      <EntityTypeMapping TypeName="WYRRModel.trnUserParticipantEventDetail">
+        <MappingFragment StoreEntitySet="trnUserParticipantEventDetails">
+          <ScalarProperty Name="IsPaymentDone" ColumnName="IsPaymentDone" />
+          <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ParticipantUserId" ColumnName="ParticipantUserId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="WYRRModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLogs">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="InnerException" ColumnName="InnerException" />
+          <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="LogType" ColumnName="LogType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUserTransactionHistory" FunctionName="WYRRModel.Store.GetUserTransactionHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.GetUserTransactionHistory_Result">
+          <ScalarProperty Name="TXNDATE" ColumnName="TXNDATE" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="mstCountries">
+      <EntityTypeMapping TypeName="WYRRModel.mstCountry">
+        <MappingFragment StoreEntitySet="mstCountry">
+          <ScalarProperty Name="IconImage" ColumnName="IconImage" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trnUserTransactionSettings">
+      <EntityTypeMapping TypeName="WYRRModel.trnUserTransactionSetting">
+        <MappingFragment StoreEntitySet="trnUserTransactionSetting">
+          <ScalarProperty Name="TransactionAmountPerDay" ColumnName="TransactionAmountPerDay" />
+          <ScalarProperty Name="TransactionPerDay" ColumnName="TransactionPerDay" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cometchat_recentconversation">
+      <EntityTypeMapping TypeName="WYRRModel.cometchat_recentconversation">
+        <MappingFragment StoreEntitySet="cometchat_recentconversation">
+          <ScalarProperty Name="sent" ColumnName="sent" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="to" ColumnName="to" />
+          <ScalarProperty Name="from" ColumnName="from" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="convo_id" ColumnName="convo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cometchats">
+      <EntityTypeMapping TypeName="WYRRModel.cometchat">
+        <MappingFragment StoreEntitySet="cometchat">
+          <ScalarProperty Name="direction" ColumnName="direction" />
+          <ScalarProperty Name="read" ColumnName="read" />
+          <ScalarProperty Name="sent" ColumnName="sent" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="to" ColumnName="to" />
+          <ScalarProperty Name="from" ColumnName="from" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetRecentChatUser" FunctionName="WYRRModel.Store.GetRecentChatUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.GetRecentChatUser_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+          <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="TransactionRangeCharges">
+      <EntityTypeMapping TypeName="WYRRModel.TransactionRangeCharge">
+        <MappingFragment StoreEntitySet="TransactionRangeCharges">
+          <ScalarProperty Name="max" ColumnName="max" />
+          <ScalarProperty Name="min" ColumnName="min" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Fee_Lumen_" ColumnName="Fee(Lumen)" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StellarMasterUsers">
+      <EntityTypeMapping TypeName="WYRRModel.StellarMasterUser">
+        <MappingFragment StoreEntitySet="StellarMasterUser">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+          <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logTransactionDetails">
+      <EntityTypeMapping TypeName="WYRRModel.logTransactionDetail">
+        <MappingFragment StoreEntitySet="logTransactionDetails">
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="CoinbaseClientMarginAmt" ColumnName="CoinbaseClientMarginAmt" />
+          <ScalarProperty Name="CoinbaseClientMargin" ColumnName="CoinbaseClientMargin" />
+          <ScalarProperty Name="CoinbaseMarginAmt" ColumnName="CoinbaseMarginAmt" />
+          <ScalarProperty Name="CoinbaseMargin" ColumnName="CoinbaseMargin" />
+          <ScalarProperty Name="LumeninUSD" ColumnName="LumeninUSD" />
+          <ScalarProperty Name="TxnDate" ColumnName="TxnDate" />
+          <ScalarProperty Name="TxnStatus" ColumnName="TxnStatus" />
+          <ScalarProperty Name="ChangellyClientMarginAmt" ColumnName="ChangellyClientMarginAmt" />
+          <ScalarProperty Name="ChangellyClientMargin" ColumnName="ChangellyClientMargin" />
+          <ScalarProperty Name="ChangellyMarginAmt" ColumnName="ChangellyMarginAmt" />
+          <ScalarProperty Name="ChangellyMargin" ColumnName="ChangellyMargin" />
+          <ScalarProperty Name="PaypalClientMarginAmt" ColumnName="PaypalClientMarginAmt" />
+          <ScalarProperty Name="PaypalClientMargin" ColumnName="PaypalClientMargin" />
+          <ScalarProperty Name="PaypalMarginAmt" ColumnName="PaypalMarginAmt" />
+          <ScalarProperty Name="PaypalMargin" ColumnName="PaypalMargin" />
+          <ScalarProperty Name="CurrencyReceived" ColumnName="CurrencyReceived" />
+          <ScalarProperty Name="AmountReceived" ColumnName="AmountReceived" />
+          <ScalarProperty Name="CurrencyGiven" ColumnName="CurrencyGiven" />
+          <ScalarProperty Name="AmountGiven" ColumnName="AmountGiven" />
+          <ScalarProperty Name="ReceiverAddress" ColumnName="ReceiverAddress" />
+          <ScalarProperty Name="SenderAddress" ColumnName="SenderAddress" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TxnType" ColumnName="TxnType" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="TxnLogID" ColumnName="TxnLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionSettings">
+      <EntityTypeMapping TypeName="WYRRModel.TransactionSetting">
+        <MappingFragment StoreEntitySet="TransactionSetting">
+          <ScalarProperty Name="MinimumAmountForPayPalTransaction" ColumnName="MinimumAmountForPayPalTransaction" />
+          <ScalarProperty Name="CoinbaseSendLimit" ColumnName="CoinbaseSendLimit" />
+          <ScalarProperty Name="EnableAddCoinbase" ColumnName="EnableAddCoinbase" />
+          <ScalarProperty Name="CoinbaseMargin" ColumnName="CoinbaseMargin" />
+          <ScalarProperty Name="EnableWithdrawPayPal" ColumnName="EnableWithdrawPayPal" />
+          <ScalarProperty Name="EnableAddPayPal" ColumnName="EnableAddPayPal" />
+          <ScalarProperty Name="PayPalMargin" ColumnName="PayPalMargin" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MinimumAmountForTransaction" ColumnName="MinimumAmountForTransaction" />
+          <ScalarProperty Name="ServiceTaxPerTransaction" ColumnName="ServiceTaxPerTransaction" />
+          <ScalarProperty Name="TransactionPerMonth" ColumnName="TransactionPerMonth" />
+          <ScalarProperty Name="TransactionPerDay" ColumnName="TransactionPerDay" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetChatInvitesForUser" FunctionName="WYRRModel.Store.GetChatInvitesForUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.GetChatInvitesForUser_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+          <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsSocialLogin" ColumnName="IsSocialLogin" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="UserUniqueId" ColumnName="UserUniqueId" />
+          <ScalarProperty Name="DefaultCurrency" ColumnName="DefaultCurrency" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+          <ScalarProperty Name="connection_status" ColumnName="connection_status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SendChatInviteToUser" FunctionName="WYRRModel.Store.SendChatInviteToUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.SendChatInviteToUser_Result">
+          <ScalarProperty Name="response" ColumnName="response" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AcceptRejectResendChatInvite" FunctionName="WYRRModel.Store.AcceptRejectResendChatInvite">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.AcceptRejectResendChatInvite_Result">
+          <ScalarProperty Name="response" ColumnName="response" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateRecentChat" FunctionName="WYRRModel.Store.UpdateRecentChat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.UpdateRecentChat_Result">
+          <ScalarProperty Name="response" ColumnName="response" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="chat_user_connection">
+      <EntityTypeMapping TypeName="WYRRModel.chat_user_connection">
+        <MappingFragment StoreEntitySet="chat_user_connection">
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="connection_status" ColumnName="connection_status" />
+          <ScalarProperty Name="receiver_id" ColumnName="receiver_id" />
+          <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+          <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetRecentChats" FunctionName="WYRRModel.Store.GetRecentChats">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.GetRecentChats_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+          <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsSocialLogin" ColumnName="IsSocialLogin" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="UserUniqueId" ColumnName="UserUniqueId" />
+          <ScalarProperty Name="DefaultCurrency" ColumnName="DefaultCurrency" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUsersByName" FunctionName="WYRRModel.Store.GetUsersByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.GetUsersByName_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+          <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsSocialLogin" ColumnName="IsSocialLogin" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="UserUniqueId" ColumnName="UserUniqueId" />
+          <ScalarProperty Name="DefaultCurrency" ColumnName="DefaultCurrency" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+          <ScalarProperty Name="connection_status" ColumnName="connection_status" />
+          <ScalarProperty Name="connection_id" ColumnName="connection_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="newsFeeds">
+      <EntityTypeMapping TypeName="WYRRModel.newsFeed">
+        <MappingFragment StoreEntitySet="newsFeed">
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="modified_at" ColumnName="modified_at" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="isApproved" ColumnName="isApproved" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="feedID" ColumnName="feedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetNewsFeeds" FunctionName="WYRRModel.Store.GetNewsFeeds">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WYRRModel.GetNewsFeeds_Result">
+          <ScalarProperty Name="feedID" ColumnName="feedID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="feed_date" ColumnName="feed_date" />
+          <ScalarProperty Name="feed_status" ColumnName="feed_status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,253 @@
+﻿@model PENPAL.VM.UserManagement.TransactionSettingModel
+<style type="text/css">
+    input[type="checkbox"] {
+        margin: 10px 0 0;
+        line-height: normal;
+    }
+</style>
+@if (Model != null)
+{
+    using (Ajax.BeginForm("ManageTransaction", "TransactionConfiguration", new { id = Model.Id },
+                            new AjaxOptions { HttpMethod = "POST", OnBegin = "return ValidateData()", OnSuccess = "UpdateSuccessful(data)", UpdateTargetId = "partialContent" },
+                             new { @class = "form-horizontal", autocomplete = "off" }))
+    {
+        <div class="box box-solid box-primary" style="margin-bottom:0px;">
+            <div class="box-header">
+                @if (Model.Id > 0)
+                {
+                    <h3 class="box-title">
+                        Edit Transaction Setting
+                    </h3>
+                }
+
+            </div>
+            <div class="box-body" style="max-height:700px;overflow-y:auto;overflow-x:hidden">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(r => Model.Id)
+
+                <div class="row">
+                    <div class="col-xs-6">
+
+                        @*<div class="row">
+                                <label for="txtSubCompany" class="control-label col-xs-4">Transaction Per Day</label>
+                                <div class="col-xs-8">
+
+                                    @Html.TextBoxFor(m => m.TransactionPerDay, new { @class = "form-control", @placeholder = "Transaction Per Day " })
+                                    <p>
+                                        @Html.ValidationMessageFor(m => m.TransactionPerDay)
+                                    </p>
+                                </div>
+                            </div>*@
+
+                        <div class="row">
+                            <label for="txtSubCompany" class="control-label col-xs-6">Minimum Amount For Transaction ($)</label>
+                            <div class="col-xs-6">
+
+                                @Html.TextBoxFor(m => m.MinimumAmountForTransaction, new { @class = "form-control", @placeholder = "Minimum Amount For Transaction" })
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.MinimumAmountForTransaction)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label for="txtSubCompany" class="control-label col-xs-6">Service Tax Per Transaction</label>
+                            <div class="col-xs-6">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.ServiceTaxPerTransaction, new { id = "txtServiceTax", @class = "form-control", @maxlength = "3", @placeholder = "Service Tax Per Transaction" })
+                                        </td>
+                                        <td> @Html.Label("%")</td>
+
+                                    </tr>
+
+                                </table>
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.ServiceTaxPerTransaction)
+                                </p>
+                            </div>
+                            @*<br />
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.ServiceTaxPerTransaction)
+                                </p>*@
+
+                        </div>
+                        <div class="row">
+                            <label for="txtSubCheck" class="control-label col-xs-6">Is Tax Setting</label>
+                            <div class="col-xs-6">
+                                @Html.CheckBoxFor(m => m.IsChecked, new { id = "checkID", @onclick = "setCompleteStatus(this)" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <label for="txtSubRangeCharges" class="control-label col-xs-4">Range</label>
+                            <div class="col-xs-8">
+                                @Html.DropDownListFor(m => m.LumenChargeRangeID, new SelectList(ViewBag.LumenChargeRangeList, "Id", "Range"), "Any", new { id = "drpRange", @class = "form-control", onchange = "Client_Change()" })
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.LumenChargeRangeID)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label for="txtSubCharges" class="control-label col-xs-4">Charges(In Lumen)</label>
+                            <div class="col-xs-8">
+                                @Html.TextBoxFor(m => m.TransactionCharges, new { id = "txtCharges", @class = "form-control", @placeholder = "Transaction Charges" })
+
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.TransactionCharges)
+                                </p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <label for="txtPaypalMargin" class="control-label col-xs-5">PayPal Margin</label>
+                            <div class="col-xs-4">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.PayPalMargin, new { id = "txtPaypalMargin", @class = "form-control", @maxlength = "3", @placeholder = "PayPal Margin" })
+                                        </td>
+                                        <td style="padding-left:3px"> @Html.Label("%")</td>
+
+                                    </tr>
+
+                                </table>
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.PayPalMargin)
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <label for="txtCoinbaseMargin" class="control-label col-xs-5">Coinbase Margin</label>
+                            <div class="col-xs-4">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.CoinbaseMargin, new { id = "txtCoinbaseMargin", @class = "form-control", @maxlength = "3", @placeholder = "Coinbase Margin" })
+                                        </td>
+                                        <td style="padding-left:3px"> @Html.Label("%")</td>
+
+                                    </tr>
+
+                                </table>
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.CoinbaseMargin)
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <label for="txtCoinbaseSendLimit" class="control-label col-xs-6">Coinbase Send Limit</label>
+                            <div class="col-xs-4">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.CoinbaseSendLimit, new { id = "txtCoinbaseSendLimit", @class = "form-control", @maxlength = "3", @placeholder = "Coinbase Send Limit" })
+                                        </td>
+                                        <td style="padding-left:3px"> @Html.Label("USD")</td>
+
+                                    </tr>
+
+                                </table>
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.CoinbaseSendLimit)
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <label for="txtMinimumAmountForPayPalTransaction" class="control-label col-xs-6">Minimum Amount For PayPal Transaction</label>
+                            <div class="col-xs-4">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.MinimumAmountForPayPalTransaction, new { id = "txtMinimumAmountForPayPalTransaction", @class = "form-control", @maxlength = "4", @placeholder = "Minimum Amount For PayPal Transaction"})
+                                        </td>
+                                        <td style="padding-left:3px"> @Html.Label("USD")</td>
+                                    </tr>
+                                </table>
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.MinimumAmountForPayPalTransaction)
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <label for="txtEnableAddPayPal" class="control-label col-xs-6">Enable Add PayPal</label>
+                            <div class="col-xs-5">
+                                @Html.CheckBoxFor(m => m.EnableAddPayPal, new { id = "txtEnableAddPayPal" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <label for="txtEnableWithdrawPayPal" class="control-label col-xs-7">Enable Withdraw PayPal</label>
+                            <div class="col-xs-5">
+                                @Html.CheckBoxFor(m => m.EnableWithdrawPayPal, new { id = "txtEnableWithdrawPayPal" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="row">
+                            <label for="txtEnableAddCoinbase" class="control-label col-xs-6">Enable Add Coinbase</label>
+                            <div class="col-xs-5">
+                                @Html.CheckBoxFor(m => m.EnableAddCoinbase, new { id = "txtEnableAddCoinbase" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <label for="txtEnableAddCoinbase" class="control-label col-xs-6">Enable Add Coinbase</label>
+                                <div class="col-xs-6">
+                                    @Html.CheckBoxFor(m => m.EnableAddCoinbase, new { id = "txtEnableAddCoinbase" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                        </div>
+                    </div>*@
+
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12 text-right">
+
+                        <button type="submit" class="btn btn-primary">Save</button>
+
+                        <a class="btn btn-default" data-popup-close="popup" href="#" onclick="ClosePopup();">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+}
+

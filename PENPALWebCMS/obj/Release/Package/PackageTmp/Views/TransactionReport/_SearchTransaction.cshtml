@@ -1,0 +1,203 @@
+﻿@model PENPAL.VM.UserManagement.TransactionSearch
+@using Newtonsoft.Json
+@if (Model != null)
+{
+    <style type="text/css">
+        .field-validation-error {
+            color: red;
+        }
+
+        .input-validation-error {
+            background: pink;
+            border: 1px solid red;
+        }
+
+
+    </style>
+
+
+    <!-- Main content -->
+    <section class="content" style="height:100% !important">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary">
+                    @using (Ajax.BeginForm("ManageSearch", "TransactionReport", null, new AjaxOptions { HttpMethod = "Post", OnBegin = "return ValidateData()", OnSuccess = "LoadSearchResult(data)", UpdateTargetId = "partialOrderViewsd" }, new { @id = "frmTransactionSearch", @class = "form-horizontal" }))
+                    {
+                        <div class="box-header text-right">
+                            <div class="pull-right text-right pad">
+                            </div>
+
+                        </div>
+                        <div class="box-body">
+
+                            <div class="row">
+
+                                <div class="row">
+
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="txtCustomerName" class="control-label col-md-5">Customer Name</label>
+                                            <div class="col-md-7">
+                                                @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control", @placeholder = "Customer Name" })
+
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="txtTransactionToDate" class="control-label col-md-5">Status</label>
+                                            <div class="col-md-7">
+                                                @Html.DropDownListFor(m => m.StatusID, new SelectList(ViewBag.StatusList, "StatusID", "StatusName"), "Any", new { @class = "form-control" })
+
+                                            </div>
+                                           
+                                         
+                                        </div>
+
+                                                                                
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        
+                                        <div class="form-group">
+                                            <label for="txtTransactionDate" class="control-label col-md-5">Transaction From Date</label>
+                                            <div class="col-md-7">
+                                                @Html.TextBoxFor(m => m.TransactionFromDate, "{0:yyyy-MM-dd}", new { @class = "datepicker form-control", @placeholder = "Transaction From Date" })
+                                                <p>
+                                                    @Html.ValidationMessageFor(m => m.TransactionFromDate)
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="txtTransactionToDate" class="control-label col-md-5">Transaction To Date</label>
+                                            <div class="col-md-7">
+                                                @Html.TextBoxFor(m => m.TransactionToDate, "{0:yyyy-MM-dd}", new { @class = "datepicker form-control", @placeholder = "Transaction To Date" })
+                                                <p>
+                                                    @Html.ValidationMessageFor(m => m.TransactionToDate)
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            <div class="row">
+                                <div class="col-sm-12 text-right">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                    <button type="reset" class="btn btn-default" onclick="$('#transactionSearchResult').hide();">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div><!-- /.box -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 table-responsive" id="transactionSearchResult" style="display:none;">
+                <div class="box box-primary table-responsive">
+
+                    <div class="box-header text-right">
+                        <div class="pull-right text-right pad">
+                            <button id="btnExportSearchData" class="btn btn-primary" onclick="ExportSearchData();">Download</button>
+                         </div>
+
+                        <div class="box-title pull-left pad">
+                            <span>Transaction Search Result</span>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        <table id="searchResult" cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-responsive" style="width:100%;">
+
+                            <thead>
+                                <tr>
+                                    @*<th width="3%">
+                                     
+                                    </th>*@
+                                    <th width="7%">
+                                        Status
+                                    </th>
+                                    <th width="10%">
+                                        Sender Name
+                                    </th>
+                                    <th width="10%">
+                                        Receiver Name
+                                    </th>
+                                    <th width="9%">
+                                        Sender Account Number
+                                    </th>
+                                    <th width="9%">
+                                        Reciever Account Number
+                                    </th>
+                                   
+                                    <th style="text-align:right" width="5%">
+                                        Total Amount ($)
+                                    </th>
+                                   <th width="7%">
+                                       Transaction Date
+                                    </th>
+                                  
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+
+                        </table>
+
+                    </div><!-- /.box-body -->
+
+                </div><!-- /.box -->
+            </div>
+        </div>
+
+    </section>
+
+
+}
+<script type="text/javascript" src="../Scripts/plugins/datepicker/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+
+    function ExportSearchData(modal)
+    {
+             
+        var transaction = {};
+        transaction.TransactionFromDate = $("#TransactionFromDate").val();
+        transaction.TransactionToDate = $("#TransactionToDate").val();
+        transaction.CustomerName = $("#CustomerName").val();
+        transaction.StatusID = $("#StatusID option:selected").val();
+        var serachCriteria = JSON.stringify({ _transaction: transaction });
+
+        $.ajax({
+            type: "POST",
+            url: "../TransactionReport/GetSearchData",
+            data: serachCriteria,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: false,
+            success: function (response) {
+                if (response == "True")
+                {
+                    window.location.href = "../TransactionReport/DownloadSearchData";
+                }
+                else
+                {
+                    toastr.error('No order records to download');
+                }
+
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+
+</script>

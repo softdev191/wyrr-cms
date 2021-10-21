@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A24C19F0-F17A-4B2D-AB52-7F47D680E4D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PENPAL.DataStore</RootNamespace>
+    <AssemblyName>PENPAL.DataStore</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcceptRejectResendChatInvite_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APIModel\APIModel.cs" />
+    <Compile Include="chat_user_connection.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="cometchat.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cometchat_recentconversation.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CSVHelper\CSVManagement.cs" />
+    <Compile Include="DataProviders\EventManagementProvider.cs" />
+    <Compile Include="DataProviders\LogTransactionProvider.cs" />
+    <Compile Include="DataProviders\UserManagementProvider.cs" />
+    <Compile Include="DataProviders\UserTransactionManagementProvider.cs" />
+    <Compile Include="EmailHelper\EmailManagement.cs" />
+    <Compile Include="Entity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorLog.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetChatInvitesForUser_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetNewsFeeds_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetRecentChats_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetRecentChatUser_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetUsersByName_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetUserTransactionHistory_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="logTransactionDetail.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mstCountry.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mstUser.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="newsFeed.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OTPTransaction.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultModel.cs" />
+    <Compile Include="SendChatInviteToUser_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMSHelper\SMSManagement.cs" />
+    <Compile Include="StellarMasterUser.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StellarModel\AccountModel.cs" />
+    <Compile Include="StellarModel\SendMoneyModel.cs" />
+    <Compile Include="StellarModel\StellarAPIErrorModel.cs" />
+    <Compile Include="StellarModel\StellarLumenConversion.cs" />
+    <Compile Include="StellarModel\StellarWalletModel.cs" />
+    <Compile Include="Templates\EmailTemplates.cs" />
+    <Compile Include="Templates\SMSTemplates.cs" />
+    <Compile Include="TransactionRangeCharge.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionSetting.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="trnUserEventDetail.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="trnUserParticipantEventDetail.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="trnUserTransactionDetail.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="trnUserTransactionSetting.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="trnUserWalletDetail.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateRecentChat_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\Common.cs" />
+    <Compile Include="Utility\EncryptDecrypt.cs" />
+    <Compile Include="Utility\Logger.cs" />
+    <Compile Include="Utility\SendEmail.cs" />
+    <Compile Include="Utility\UserMessages.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PENPAL.VM\PENPAL.VM.csproj">
+      <Project>{E76AAB05-0C20-48D9-8B6F-976034E34509}</Project>
+      <Name>PENPAL.VM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Entity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Entity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entity.edmx.diagram">
+      <DependentUpon>Entity.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Entity.edmx</DependentUpon>
+      <LastGenOutput>Entity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Entity.edmx</DependentUpon>
+      <LastGenOutput>Entity.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DLL\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

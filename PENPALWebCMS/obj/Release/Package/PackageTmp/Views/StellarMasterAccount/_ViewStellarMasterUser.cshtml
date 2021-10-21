@@ -1,0 +1,68 @@
+﻿@model PENPAL.VM.UserManagement.MasterUserModel
+
+@if (Model != null)
+{
+
+    <div class="box box-solid box-primary" style="margin-bottom:0px;">
+        <div class="box-header">
+            @if (Model.ID > 0)
+            {
+                <h3 class="box-title">
+                    View Master User
+                </h3>
+            }
+
+        </div>
+        <div class="box-body" style="max-height:700px;overflow-y:auto;overflow-x:hidden">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(r => Model.ID)
+
+            <div class="row">
+                <div class="col-xs-6">
+
+                    <div class="row">
+                        <label for="txtSubCompany" class="control-label col-xs-4">Public Key</label>
+                        <div class="col-xs-8">
+
+                            @Html.TextBoxFor(m => m.PublicKey, new { @class = "form-control", @placeholder = "PublicKey", @readonly = "readonly" })
+                            <p>
+                                @Html.ValidationMessageFor(m => m.PublicKey)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="txtSubCompany" class="control-label col-xs-4">Secret Key</label>
+                        <div class="col-xs-8">
+
+                            @Html.TextBoxFor(m => m.SecretKey, new { @class = "form-control", @placeholder = "SecretKey", @readonly = "readonly" })
+                            <p>
+                                @Html.ValidationMessageFor(m => m.SecretKey)
+                            </p>
+                        </div>
+                    </div>
+
+                    
+
+                </div>
+
+                
+
+            </div>
+        </div>
+        <div class="box-footer">
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    @if (ViewBag.IsUpdate == true)
+                    {
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    }
+                    <a class="btn btn-default" data-popup-close="popup" href="#" onclick="ClosePopup();">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

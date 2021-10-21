@@ -1,0 +1,97 @@
+﻿@model PENPAL.VM.UserManagement.UserCMSModel
+
+@if (Model != null)
+{
+    using (Ajax.BeginForm("ManageCMSUser", "CMSUser", new { id = Model.UserID },
+                           new AjaxOptions { HttpMethod = "POST", OnSuccess = "UpdateSuccessful(data)", UpdateTargetId = "partialContent" },
+                            new { @class = "form-horizontal", autocomplete = "off" }))
+    {
+        <div class="box box-solid box-primary" style="margin-bottom:0px;">
+            <div class="box-header">
+                @if (Model.UserID > 0)
+                {
+                    <h3 class="box-title">
+                        Edit CMS User
+                    </h3>
+                }
+                else
+                {
+                    <h3 class="box-title">
+                        Add CMS User
+                    </h3>
+                }
+
+
+            </div>
+            <div class="box-body" style="max-height:700px;overflow-y:auto;overflow-x:hidden">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(r => Model.UserID)
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <label for="txtSubCompany" class="control-label col-xs-4">Username</label>
+                            <div class="col-xs-8">
+
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Username" })
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.UserName)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="txtSubCompany" class="control-label col-xs-4">Email Id</label>
+                            <div class="col-xs-8">
+
+                                @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", @placeholder = "Email Id" })
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.EmailAddress)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        @if (Model.UserID == 0)
+                        {
+                          <div class="row">
+                            <label for="txtSubCompany" class="control-label col-xs-4">Password</label>
+                            <div class="col-xs-8">
+
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.Password)
+                                </p>
+                            </div>
+                        </div>
+                        }
+                        <div class="row">
+                            <label for="txtSubCompany" class="control-label col-xs-4">Phone Number</label>
+                            <div class="col-xs-8">
+
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @placeholder = "Phone Number", @maxlength = 10 })
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.PhoneNumber)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12 text-right">
+                        @if (ViewBag.IsUpdate == true)
+                    {
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        }
+                        <a class="btn btn-default" data-popup-close="popup" href="#" onclick="ClosePopup();">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+

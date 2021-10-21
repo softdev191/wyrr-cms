@@ -1,0 +1,131 @@
+﻿@model PENPAL.VM.UserManagement.TransactionSettingModel
+
+@if (Model != null)
+{
+    <style type="text/css">
+        .field-validation-error {
+            color: red;
+        }
+
+        .input-validation-error {
+            background: pink;
+            border: 1px solid red;
+        }
+    </style>
+
+
+ <!-- Main content -->
+    <section class="content" style="height:100% !important">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary">
+                    @using (Ajax.BeginForm("ManageSearch", "TransactionConfiguration", null, new AjaxOptions { HttpMethod = "Post", OnBegin = "return ValidateData()", OnSuccess = "LoadSearchResult(data)", UpdateTargetId = "partialOrderViewsd" }, new { @id = "frmTransactionSearch", @class = "form-horizontal" }))
+                {
+                        <div class="box-header text-right">
+                            <div class="pull-right text-right pad">
+                            </div>
+
+                        </div>
+                        <div class="box-body">
+
+                            <div class="row">
+
+                                <div class="row">
+
+
+                                    @*<div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="spinner" class="control-label col-md-5">Transaction Per Day</label>
+                                            <div class="col-md-7">
+                                               
+                                                @Html.TextBoxFor(m => m.TransactionPerDay,new { @class = "spinner form-control", @placeholder =                   "Transaction Per Day" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="txtCustomerName" class="control-label col-md-5">Transaction Per Month</label>
+                                            <div class="col-md-6">
+                                                <input id="spinner" name="value">
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>*@
+
+                                    <div class="col-lg-4">
+
+                                        <div class="form-group">
+                                            <label for="txtTransactionToDate" class="control-label col-md-5">Service Tax Per Transaction</label>
+                                            <div class="col-md-7">
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="txtTransactionToDate" class="control-label col-md-5">Status</label>
+                                            <div class="col-md-7">
+
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            <div class="row">
+                                <div class="col-sm-12 text-right">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div><!-- /.box -->
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+}
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script>
+  $( function() {
+    var spinner = $( "#spinner" ).spinner();
+
+    $( "#disable" ).on( "click", function() {
+      if ( spinner.spinner( "option", "disabled" ) ) {
+        spinner.spinner( "enable" );
+      } else {
+        spinner.spinner( "disable" );
+      }
+    });
+    $( "#destroy" ).on( "click", function() {
+      if ( spinner.spinner( "instance" ) ) {
+        spinner.spinner( "destroy" );
+      } else {
+        spinner.spinner();
+      }
+    });
+    $( "#getvalue" ).on( "click", function() {
+      alert( spinner.spinner( "value" ) );
+    });
+    $( "#setvalue" ).on( "click", function() {
+      spinner.spinner( "value", 5 );
+    });
+
+    $( "button" ).button();
+  } );
+</script>

@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WYRRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="mstUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PublicKey" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SecretKey" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsSocialLogin" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="trnUserEventDetails" Relationship="WYRRModel.FK_trnUserEventDetails_mstUser" FromRole="mstUser" ToRole="trnUserEventDetail" />
+    <NavigationProperty Name="trnUserWalletDetails" Relationship="WYRRModel.FK_trnUserWalletDetails_mstUser" FromRole="mstUser" ToRole="trnUserWalletDetail" />
+    <Property Name="DefaultCurrency" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="UserUniqueId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="IsVerified" Type="Boolean" />
+    <Property Name="CountryCode" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+    <Property Name="avatar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OTPTransaction">
+    <Key>
+      <PropertyRef Name="OTPTransactionID" />
+    </Key>
+    <Property Name="OTPTransactionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="OTP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="isVerified" Type="Boolean" />
+    <Property Name="VerifiedDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="trnUserEventDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="Amount" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Currency" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="mstUser" Relationship="WYRRModel.FK_trnUserEventDetails_mstUser" FromRole="trnUserEventDetail" ToRole="mstUser" />
+    <NavigationProperty Name="trnUserParticipantEventDetails" Relationship="WYRRModel.FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails1" FromRole="trnUserEventDetail" ToRole="trnUserParticipantEventDetail" />
+  </EntityType>
+  <EntityType Name="trnUserTransactionDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SenderUserId" Type="Int64" />
+    <Property Name="ReceiverUserId" Type="Int64" />
+    <Property Name="Amount" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Currency" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SenderPublicKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SenderSecretKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverPublicKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TXNID" Type="Int64" />
+    <Property Name="Status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TXNDATE" Type="DateTime" Precision="3" />
+    <Property Name="PAYMENTMODE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ISTXNVERIFIED" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="trnUserWalletDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="WalletBalance" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Currency" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="mstUser" Relationship="WYRRModel.FK_trnUserWalletDetails_mstUser" FromRole="trnUserWalletDetail" ToRole="mstUser" />
+  </EntityType>
+  <EntityContainer Name="WYRREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="mstUsers" EntityType="Self.mstUser" />
+    <EntitySet Name="OTPTransactions" EntityType="Self.OTPTransaction" />
+    <EntitySet Name="trnUserEventDetails" EntityType="Self.trnUserEventDetail" />
+    <EntitySet Name="trnUserTransactionDetails" EntityType="Self.trnUserTransactionDetail" />
+    <EntitySet Name="trnUserWalletDetails" EntityType="Self.trnUserWalletDetail" />
+    <AssociationSet Name="FK_trnUserEventDetails_mstUser" Association="WYRRModel.FK_trnUserEventDetails_mstUser">
+      <End Role="mstUser" EntitySet="mstUsers" />
+      <End Role="trnUserEventDetail" EntitySet="trnUserEventDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trnUserWalletDetails_mstUser" Association="WYRRModel.FK_trnUserWalletDetails_mstUser">
+      <End Role="mstUser" EntitySet="mstUsers" />
+      <End Role="trnUserWalletDetail" EntitySet="trnUserWalletDetails" />
+    </AssociationSet>
+    <EntitySet Name="trnUserParticipantEventDetails" EntityType="WYRRModel.trnUserParticipantEventDetail" />
+    <AssociationSet Name="FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails" Association="WYRRModel.FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails">
+      <End Role="trnUserParticipantEventDetail" EntitySet="trnUserParticipantEventDetails" />
+      <End Role="trnUserParticipantEventDetail1" EntitySet="trnUserParticipantEventDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails1" Association="WYRRModel.FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails1">
+      <End Role="trnUserEventDetail" EntitySet="trnUserEventDetails" />
+      <End Role="trnUserParticipantEventDetail" EntitySet="trnUserParticipantEventDetails" />
+    </AssociationSet>
+    <EntitySet Name="ErrorLogs" EntityType="WYRRModel.ErrorLog" />
+    <FunctionImport Name="GetUserTransactionHistory" ReturnType="Collection(WYRRModel.GetUserTransactionHistory_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="mstCountries" EntityType="WYRRModel.mstCountry" />
+    <EntitySet Name="trnUserTransactionSettings" EntityType="WYRRModel.trnUserTransactionSetting" />
+    <EntitySet Name="cometchat_recentconversation" EntityType="WYRRModel.cometchat_recentconversation" />
+    <EntitySet Name="cometchats" EntityType="WYRRModel.cometchat" />
+    <FunctionImport Name="GetRecentChatUser" ReturnType="Collection(WYRRModel.GetRecentChatUser_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="TransactionRangeCharges" EntityType="WYRRModel.TransactionRangeCharge" />
+    <EntitySet Name="StellarMasterUsers" EntityType="WYRRModel.StellarMasterUser" />
+    <EntitySet Name="logTransactionDetails" EntityType="WYRRModel.logTransactionDetail" />
+    <EntitySet Name="TransactionSettings" EntityType="WYRRModel.TransactionSetting" />
+    <FunctionImport Name="GetChatInvitesForUser" ReturnType="Collection(WYRRModel.GetChatInvitesForUser_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="SendChatInviteToUser" ReturnType="Collection(WYRRModel.SendChatInviteToUser_Result)">
+      <Parameter Name="SenderID" Mode="In" Type="Int64" />
+      <Parameter Name="ReceiverID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="AcceptRejectResendChatInvite" ReturnType="Collection(WYRRModel.AcceptRejectResendChatInvite_Result)">
+      <Parameter Name="ConnectionID" Mode="In" Type="Int64" />
+      <Parameter Name="connectionStatus" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateRecentChat" ReturnType="Collection(WYRRModel.UpdateRecentChat_Result)">
+      <Parameter Name="ConnectionID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="chat_user_connection" EntityType="WYRRModel.chat_user_connection" />
+    <FunctionImport Name="GetRecentChats" ReturnType="Collection(WYRRModel.GetRecentChats_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetUsersByName" ReturnType="Collection(WYRRModel.GetUsersByName_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+      <Parameter Name="SearchText" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="newsFeeds" EntityType="WYRRModel.newsFeed" />
+    <FunctionImport Name="GetNewsFeeds" ReturnType="Collection(WYRRModel.GetNewsFeeds_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int64" />
+    </FunctionImport>
+  </EntityContainer>
+  <Association Name="FK_trnUserEventDetails_mstUser">
+    <End Type="WYRRModel.mstUser" Role="mstUser" Multiplicity="0..1" />
+    <End Type="WYRRModel.trnUserEventDetail" Role="trnUserEventDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mstUser">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="trnUserEventDetail">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trnUserWalletDetails_mstUser">
+    <End Type="WYRRModel.mstUser" Role="mstUser" Multiplicity="0..1" />
+    <End Type="WYRRModel.trnUserWalletDetail" Role="trnUserWalletDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mstUser">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="trnUserWalletDetail">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="trnUserParticipantEventDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventId" Type="Int64" />
+    <Property Name="ParticipantUserId" Type="Int64" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="trnUserParticipantEventDetails1" Relationship="WYRRModel.FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails" FromRole="trnUserParticipantEventDetail" ToRole="trnUserParticipantEventDetail1" />
+    <NavigationProperty Name="trnUserParticipantEventDetail1" Relationship="WYRRModel.FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails" FromRole="trnUserParticipantEventDetail1" ToRole="trnUserParticipantEventDetail" />
+    <Property Name="IsPaymentDone" Type="Boolean" />
+    <NavigationProperty Name="trnUserEventDetail" Relationship="WYRRModel.FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails1" FromRole="trnUserParticipantEventDetail" ToRole="trnUserEventDetail" />
+  </EntityType>
+  <Association Name="FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails">
+    <End Type="WYRRModel.trnUserParticipantEventDetail" Role="trnUserParticipantEventDetail" Multiplicity="1" />
+    <End Type="WYRRModel.trnUserParticipantEventDetail" Role="trnUserParticipantEventDetail1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="trnUserParticipantEventDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="trnUserParticipantEventDetail1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trnUserParticipantEventDetails_trnUserParticipantEventDetails1">
+    <End Type="WYRRModel.trnUserEventDetail" Role="trnUserEventDetail" Multiplicity="0..1" />
+    <End Type="WYRRModel.trnUserParticipantEventDetail" Role="trnUserParticipantEventDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trnUserEventDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="trnUserParticipantEventDetail">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IpAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <ComplexType Name="GetUserTransactionHistory_Result">
+    <Property Type="DateTime" Name="TXNDATE" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Amount" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Currency" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TransactionType" Nullable="false" MaxLength="6" />
+    <Property Type="Boolean" Name="ISTXNVERIFIED" Nullable="false" />
+    <Property Type="Int64" Name="ReceiverUserId" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="mstCountry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IconImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="trnUserTransactionSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="TransactionPerDay" Type="Int64" />
+    <Property Name="TransactionAmountPerDay" Type="Decimal" Precision="8" Scale="2" />
+  </EntityType>
+  <EntityType Name="cometchat_recentconversation">
+    <Key>
+      <PropertyRef Name="convo_id" />
+      <PropertyRef Name="id" />
+      <PropertyRef Name="from" />
+      <PropertyRef Name="to" />
+      <PropertyRef Name="message" />
+      <PropertyRef Name="sent" />
+    </Key>
+    <Property Name="convo_id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="from" Type="Int32" Nullable="false" />
+    <Property Name="to" Type="Int32" Nullable="false" />
+    <Property Name="message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sent" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cometchat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="from" Type="Int32" Nullable="false" />
+    <Property Name="to" Type="Int32" Nullable="false" />
+    <Property Name="message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sent" Type="Int32" Nullable="false" />
+    <Property Name="read" Type="Byte" Nullable="false" />
+    <Property Name="direction" Type="Byte" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="GetRecentChatUser_Result">
+    <Property Type="Int64" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="UserEmail" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ImageUrl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PublicKey" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SecretKey" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="UserUniqueId" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="TransactionRangeCharge">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Range" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Fee_Lumen_" Type="Int64" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="min" Type="Int64" />
+    <Property Name="max" Type="Int64" />
+  </EntityType>
+  <EntityType Name="StellarMasterUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PublicKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SecretKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="logTransactionDetail">
+    <Key>
+      <PropertyRef Name="TxnLogID" />
+    </Key>
+    <Property Name="TxnLogID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TxnID" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TxnType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="SenderAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiverAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AmountGiven" Type="Decimal" Nullable="false" Precision="38" Scale="18" />
+    <Property Name="CurrencyGiven" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AmountReceived" Type="Decimal" Nullable="false" Precision="38" Scale="18" />
+    <Property Name="CurrencyReceived" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaypalMargin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PaypalMarginAmt" Type="Decimal" Precision="38" Scale="18" />
+    <Property Name="PaypalClientMargin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PaypalClientMarginAmt" Type="Decimal" Precision="38" Scale="18" />
+    <Property Name="ChangellyMargin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ChangellyMarginAmt" Type="Decimal" Precision="38" Scale="18" />
+    <Property Name="ChangellyClientMargin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ChangellyClientMarginAmt" Type="Decimal" Precision="38" Scale="18" />
+    <Property Name="TxnStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TxnDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LumeninUSD" Type="Decimal" Precision="38" Scale="18" />
+    <Property Name="CoinbaseMargin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CoinbaseMarginAmt" Type="Decimal" Precision="38" Scale="18" />
+    <Property Name="CoinbaseClientMargin" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CoinbaseClientMarginAmt" Type="Decimal" Precision="38" Scale="18" />
+    <Property Name="Memo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TransactionSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionPerDay" Type="Int64" />
+    <Property Name="TransactionPerMonth" Type="Int64" />
+    <Property Name="ServiceTaxPerTransaction" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="MinimumAmountForTransaction" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="PayPalMargin" Type="Int32" />
+    <Property Name="EnableAddPayPal" Type="Boolean" />
+    <Property Name="EnableWithdrawPayPal" Type="Boolean" />
+    <Property Name="CoinbaseMargin" Type="Int32" />
+    <Property Name="EnableAddCoinbase" Type="Boolean" />
+    <Property Name="CoinbaseSendLimit" Type="Int32" />
+    <Property Name="MinimumAmountForPayPalTransaction" Type="Decimal" Precision="8" Scale="2" />
+  </EntityType>
+  <ComplexType Name="GetChatInvitesForUser_Result">
+    <Property Type="Int64" Name="UserId" Nullable="true" />
+    <Property Type="String" Name="UserEmail" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ConfirmPassword" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="CountryCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ImageUrl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PublicKey" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SecretKey" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsAdmin" Nullable="true" />
+    <Property Type="Boolean" Name="IsSocialLogin" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Boolean" Name="IsVerified" Nullable="true" />
+    <Property Type="String" Name="UserUniqueId" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DefaultCurrency" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="String" Name="avatar" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="connection_id" Nullable="false" />
+    <Property Type="String" Name="connection_status" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <EntityType Name="chat_user_connection">
+    <Key>
+      <PropertyRef Name="connection_id" />
+    </Key>
+    <Property Name="connection_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sender_id" Type="Int64" Nullable="false" />
+    <Property Name="receiver_id" Type="Int64" Nullable="false" />
+    <Property Name="connection_status" Type="Int32" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int64" />
+    <Property Name="updated_by" Type="Int64" />
+  </EntityType>
+  <ComplexType Name="SendChatInviteToUser_Result">
+    <Property Type="String" Name="response" Nullable="false" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="AcceptRejectResendChatInvite_Result">
+    <Property Type="String" Name="response" Nullable="false" MaxLength="38" />
+  </ComplexType>
+  <ComplexType Name="UpdateRecentChat_Result">
+    <Property Type="String" Name="response" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="GetRecentChats_Result">
+    <Property Type="Int64" Name="UserId" Nullable="true" />
+    <Property Type="String" Name="UserEmail" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ConfirmPassword" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="CountryCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ImageUrl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PublicKey" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SecretKey" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsAdmin" Nullable="true" />
+    <Property Type="Boolean" Name="IsSocialLogin" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Boolean" Name="IsVerified" Nullable="true" />
+    <Property Type="String" Name="UserUniqueId" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DefaultCurrency" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="String" Name="avatar" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="updated_at" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="connection_id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetUsersByName_Result">
+    <Property Type="Int64" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserEmail" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ConfirmPassword" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="CountryCode" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ImageUrl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PublicKey" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SecretKey" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsAdmin" Nullable="true" />
+    <Property Type="Boolean" Name="IsSocialLogin" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Boolean" Name="IsVerified" Nullable="true" />
+    <Property Type="String" Name="UserUniqueId" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DefaultCurrency" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="String" Name="avatar" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="connection_status" Nullable="false" MaxLength="16" />
+    <Property Type="Int64" Name="connection_id" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="newsFeed">
+    <Key>
+      <PropertyRef Name="feedID" />
+    </Key>
+    <Property Name="feedID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="Int64" Nullable="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="isApproved" Type="Boolean" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int64" />
+    <Property Name="modified_at" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int64" />
+  </EntityType>
+  <ComplexType Name="GetNewsFeeds_Result">
+    <Property Type="Int64" Name="feedID" Nullable="false" />
+    <Property Type="Int64" Name="userID" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="4000" />
+    <Property Type="DateTime" Name="feed_date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="feed_status" Nullable="false" MaxLength="11" />
+  </ComplexType>
+</Schema>

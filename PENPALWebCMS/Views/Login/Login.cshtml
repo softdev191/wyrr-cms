@@ -1,0 +1,45 @@
+﻿@model PENPAL.VM.UserManagement.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_RegistrationLayoutPage.cshtml";
+}
+<div class="form-box" style="margin-top: 80px; padding-bottom: 80px;">
+    <div class="login_lbl">
+        <h4>Please Sign in</h4>
+    </div>
+    <div id="Login1">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @autocomplete = "off" }))
+        {   @Html.AntiForgeryToken();
+            @Html.ValidationSummary(true);
+            <div>
+                <p class="validation-summary-errors" style="color: red;">
+                </p>
+                <div class="row pad">
+                    <div class="pull-left">
+                        <img id="Login1_imgUser" src="~/img/user_name_icon.png" style="width: 38px; height: 38px; float: left; margin-right: 5px;">
+                    </div>
+                    <div class="pull-left">
+                        @Html.TextBoxFor(u => u.LoginUserName, new { @class = "login_txtbox", @placeholder = "Username", @autocomplete = "off" })
+                        <p>
+                            @Html.ValidationMessageFor(u => u.LoginUserName)
+                        </p>
+                    </div>
+                </div>
+                <div class="row pad">
+                    <div class="pull-left">
+                        <img id="Login1_imgpassword" src="~/img/password_icon.png" style="width: 38px; height: 38px; float: left; margin-right: 5px;">
+                    </div>
+                    <div class="pull-left">
+                        @Html.PasswordFor(u => u.LoginPassword, new { @class = "login_txtbox", @placeholder = "Password", @autocomplete = "off" })
+                        <p>
+                            @Html.ValidationMessageFor(u => u.LoginPassword)
+                        </p>
+                    </div>
+                </div>
+                <div class="row pad">
+                    <input name="btnLogin" value="Sign in" id="btnLogin" class="login_signin" type="submit">
+                </div>
+            </div>
+        }
+    </div>
+</div>

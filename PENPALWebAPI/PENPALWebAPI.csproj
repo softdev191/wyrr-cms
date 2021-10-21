@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8019E973-930E-49B3-A1E1-088C790E08B1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PENPALWebAPI</RootNamespace>
+    <AssemblyName>PENPALWebAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.18.2\lib\net45\AWSSDK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleNotificationService, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.SimpleNotificationService.3.3.0.23\lib\net45\AWSSDK.SimpleNotificationService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.1.2\lib\net4\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Coinbase">
+      <HintPath>..\packages\Coinbase.3.0.1\lib\net452\Coinbase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\..\SABJE_TFS_NEW\201706-001-SABJE_NEW\SABJE-branch-19-06-2017\SABJE.DATA\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\..\..\SABJE_TFS_NEW\201706-001-SABJE_NEW\SABJE-branch-19-06-2017\SABJE.DATA\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.0\lib\net451\PayPal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Pubnub, Version=4.0.29.0, Culture=neutral, PublicKeyToken=dc66f52ce6619f44, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pubnub.4.0.29\lib\net45\Pubnub.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.1.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.1.0\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CoinbaseAddController.cs" />
+    <Compile Include="Controllers\CryptoWithdrawController.cs" />
+    <Compile Include="Controllers\CryptoAddController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\FiatWithdrawController.cs" />
+    <Compile Include="Controllers\FiatAddController.cs" />
+    <Compile Include="Controllers\NewsFeedController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="Controllers\PubNubChatController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AuthorizationServerProvider.cs" />
+    <Compile Include="Models\CoinbaseAPI.cs" />
+    <Compile Include="Models\ChangellyAPI.cs" />
+    <Compile Include="Models\FiatCryptoModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\PaypalConfig.cs" />
+    <Compile Include="Models\ResponseWrapper.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\ValidateAuthorizeAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="EmailTemplate\ChangePassword.html" />
+    <Content Include="EmailTemplate\PaypalPaymentSuccess.html" />
+    <Content Include="EmailTemplate\ChangellyTickets.html" />
+    <Content Include="EmailTemplate\RegisterUser.html" />
+    <Content Include="EmailTemplate\ForgotPassword.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Icon\Afghanistan.png" />
+    <Content Include="Icon\African Union.png" />
+    <Content Include="Icon\Albania.png" />
+    <Content Include="Icon\Algeria.png" />
+    <Content Include="Icon\American Samoa.png" />
+    <Content Include="Icon\Andorra.png" />
+    <Content Include="Icon\Angola.png" />
+    <Content Include="Icon\Anguilla.png" />
+    <Content Include="Icon\Antarctica.png" />
+    <Content Include="Icon\Antigua &amp; Barbuda.png" />
+    <Content Include="Icon\Arab League.png" />
+    <Content Include="Icon\Argentina.png" />
+    <Content Include="Icon\Armenia.png" />
+    <Content Include="Icon\Aruba.png" />
+    <Content Include="Icon\ASEAN.png" />
+    <Content Include="Icon\Australia.png" />
+    <Content Include="Icon\Austria.png" />
+    <Content Include="Icon\Azerbaijan.png" />
+    <Content Include="Icon\Bahamas.png" />
+    <Content Include="Icon\Bahrain.png" />
+    <Content Include="Icon\Bangladesh.png" />
+    <Content Include="Icon\Barbados.png" />
+    <Content Include="Icon\Belarus.png" />
+    <Content Include="Icon\Belgium.png" />
+    <Content Include="Icon\Belize.png" />
+    <Content Include="Icon\Benin.png" />
+    <Content Include="Icon\Bermuda.png" />
+    <Content Include="Icon\Bhutan.png" />
+    <Content Include="Icon\Bolivia.png" />
+    <Content Include="Icon\Bosnia &amp; Herzegovina.png" />
+    <Content Include="Icon\Botswana.png" />
+    <Content Include="Icon\Brazil.png" />
+    <Content Include="Icon\Brunei.png" />
+    <Content Include="Icon\Bulgaria.png" />
+    <Content Include="Icon\Burkina Faso.png" />
+    <Content Include="Icon\Burundi.png" />
+    <Content Include="Icon\Cambodja.png" />
+    <Content Include="Icon\Cameroon.png" />
+    <Content Include="Icon\Canada.png" />
+    <Content Include="Icon\Cape Verde.png" />
+    <Content Include="Icon\CARICOM.png" />
+    <Content Include="Icon\Cayman Islands.png" />
+    <Content Include="Icon\Central African Republic.png" />
+    <Content Include="Icon\Chad.png" />
+    <Content Include="Icon\Chile.png" />
+    <Content Include="Icon\China.png" />
+    <Content Include="Icon\CIS.png" />
+    <Content Include="Icon\Colombia.png" />
+    <Content Include="Icon\Commonwealth.png" />
+    <Content Include="Icon\Comoros.png" />
+    <Content Include="Icon\Congo-Brazzaville.png" />
+    <Content Include="Icon\Congo-Kinshasa%28Zaire%29.png" />
+    <Content Include="Icon\Cook Islands.png" />
+    <Content Include="Icon\Costa Rica.png" />
+    <Content Include="Icon\Cote d%27Ivoire.png" />
+    <Content Include="Icon\Croatia.png" />
+    <Content Include="Icon\Cuba.png" />
+    <Content Include="Icon\Cyprus.png" />
+    <Content Include="Icon\Czech Republic.png" />
+    <Content Include="Icon\Denmark.png" />
+    <Content Include="Icon\Djibouti.png" />
+    <Content Include="Icon\Dominica.png" />
+    <Content Include="Icon\Dominican Republic.png" />
+    <Content Include="Icon\Ecuador.png" />
+    <Content Include="Icon\Egypt.png" />
+    <Content Include="Icon\El Salvador.png" />
+    <Content Include="Icon\England.png" />
+    <Content Include="Icon\Equatorial Guinea.png" />
+    <Content Include="Icon\Eritrea.png" />
+    <Content Include="Icon\Estonia.png" />
+    <Content Include="Icon\Ethiopia.png" />
+    <Content Include="Icon\European Union.png" />
+    <Content Include="Icon\Faroes.png" />
+    <Content Include="Icon\Fiji.png" />
+    <Content Include="Icon\Finland.png" />
+    <Content Include="Icon\France.png" />
+    <Content Include="Icon\Gabon.png" />
+    <Content Include="Icon\Gambia.png" />
+    <Content Include="Icon\Georgia.png" />
+    <Content Include="Icon\Germany.png" />
+    <Content Include="Icon\Ghana.png" />
+    <Content Include="Icon\Gibraltar.png" />
+    <Content Include="Icon\Greece.png" />
+    <Content Include="Icon\Greenland.png" />
+    <Content Include="Icon\Grenada.png" />
+    <Content Include="Icon\Guadeloupe.png" />
+    <Content Include="Icon\Guam.png" />
+    <Content Include="Icon\Guatemala.png" />
+    <Content Include="Icon\Guernsey.png" />
+    <Content Include="Icon\Guinea-Bissau.png" />
+    <Content Include="Icon\Guinea.png" />
+    <Content Include="Icon\Guyana.png" />
+    <Content Include="Icon\Haiti.png" />
+    <Content Include="Icon\Honduras.png" />
+    <Content Include="Icon\Hong Kong.png" />
+    <Content Include="Icon\Hungary.png" />
+    <Content Include="Icon\Iceland.png" />
+    <Content Include="Icon\India.png" />
+    <Content Include="Icon\Indonezia.png" />
+    <Content Include="Icon\Iran.png" />
+    <Content Include="Icon\Iraq.png" />
+    <Content Include="Icon\Ireland.png" />
+    <Content Include="Icon\Islamic Conference.png" />
+    <Content Include="Icon\Isle of Man.png" />
+    <Content Include="Icon\Israel.png" />
+    <Content Include="Icon\Italy.png" />
+    <Content Include="Icon\Jamaica.png" />
+    <Content Include="Icon\Japan.png" />
+    <Content Include="Icon\Jersey.png" />
+    <Content Include="Icon\Jordan.png" />
+    <Content Include="Icon\Kazakhstan.png" />
+    <Content Include="Icon\Kenya.png" />
+    <Content Include="Icon\Kiribati.png" />
+    <Content Include="Icon\Kosovo.png" />
+    <Content Include="Icon\Kuwait.png" />
+    <Content Include="Icon\Kyrgyzstan.png" />
+    <Content Include="Icon\Laos.png" />
+    <Content Include="Icon\Latvia.png" />
+    <Content Include="Icon\Lebanon.png" />
+    <Content Include="Icon\Lesotho.png" />
+    <Content Include="Icon\Liberia.png" />
+    <Content Include="Icon\Libya.png" />
+    <Content Include="Icon\Liechtenshein.png" />
+    <Content Include="Icon\Lithuania.png" />
+    <Content Include="Icon\Luxembourg.png" />
+    <Content Include="Icon\Macao.png" />
+    <Content Include="Icon\Macedonia.png" />
+    <Content Include="Icon\Madagascar.png" />
+    <Content Include="Icon\Malawi.png" />
+    <Content Include="Icon\Malaysia.png" />
+    <Content Include="Icon\Maldives.png" />
+    <Content Include="Icon\Mali.png" />
+    <Content Include="Icon\Malta.png" />
+    <Content Include="Icon\Marshall Islands.png" />
+    <Content Include="Icon\Martinique.png" />
+    <Content Include="Icon\Mauritania.png" />
+    <Content Include="Icon\Mauritius.png" />
+    <Content Include="Icon\Mexico.png" />
+    <Content Include="Icon\Micronesia.png" />
+    <Content Include="Icon\Moldova.png" />
+    <Content Include="Icon\Monaco.png" />
+    <Content Include="Icon\Mongolia.png" />
+    <Content Include="Icon\Montenegro.png" />
+    <Content Include="Icon\Montserrat.png" />
+    <Content Include="Icon\Morocco.png" />
+    <Content Include="Icon\Mozambique.png" />
+    <Content Include="Icon\Myanmar%28Burma%29.png" />
+    <Content Include="Icon\Namibia.png" />
+    <Content Include="Icon\NATO.png" />
+    <Content Include="Icon\Nauru.png" />
+    <Content Include="Icon\Nepal.png" />
+    <Content Include="Icon\Netherlands Antilles.png" />
+    <Content Include="Icon\Netherlands.png" />
+    <Content Include="Icon\New Caledonia.png" />
+    <Content Include="Icon\New Zealand.png" />
+    <Content Include="Icon\Nicaragua.png" />
+    <Content Include="Icon\Niger.png" />
+    <Content Include="Icon\Nigeria.png" />
+    <Content Include="Icon\North Korea.png" />
+    <Content Include="Icon\Northern Cyprus.png" />
+    <Content Include="Icon\Northern Ireland.png" />
+    <Content Include="Icon\Norway.png" />
+    <Content Include="Icon\Olimpic Movement.png" />
+    <Content Include="Icon\Oman.png" />
+    <Content Include="Icon\OPEC.png" />
+    <Content Include="Icon\Pakistan.png" />
+    <Content Include="Icon\Palau.png" />
+    <Content Include="Icon\Palestine.png" />
+    <Content Include="Icon\Panama.png" />
+    <Content Include="Icon\Papua New Guinea.png" />
+    <Content Include="Icon\Paraguay.png" />
+    <Content Include="Icon\Peru.png" />
+    <Content Include="Icon\Philippines.png" />
+    <Content Include="Icon\Poland.png" />
+    <Content Include="Icon\Portugal.png" />
+    <Content Include="Icon\Puerto Rico.png" />
+    <Content Include="Icon\Qatar.png" />
+    <Content Include="Icon\Red Cross.png" />
+    <Content Include="Icon\Reunion.png" />
+    <Content Include="Icon\Romania.png" />
+    <Content Include="Icon\Russian Federation.png" />
+    <Content Include="Icon\Rwanda.png" />
+    <Content Include="Icon\Saint Lucia.png" />
+    <Content Include="Icon\Samoa.png" />
+    <Content Include="Icon\San Marino.png" />
+    <Content Include="Icon\Sao Tome &amp; Principe.png" />
+    <Content Include="Icon\Saudi Arabia.png" />
+    <Content Include="Icon\Scotland.png" />
+    <Content Include="Icon\Senegal.png" />
+    <Content Include="Icon\Serbia%28Yugoslavia%29.png" />
+    <Content Include="Icon\Seychelles.png" />
+    <Content Include="Icon\Sierra Leone.png" />
+    <Content Include="Icon\Singapore.png" />
+    <Content Include="Icon\Slovakia.png" />
+    <Content Include="Icon\Slovenia.png" />
+    <Content Include="Icon\Solomon Islands.png" />
+    <Content Include="Icon\Somalia.png" />
+    <Content Include="Icon\Somaliland.png" />
+    <Content Include="Icon\South Africa.png" />
+    <Content Include="Icon\South Korea.png" />
+    <Content Include="Icon\Spain.png" />
+    <Content Include="Icon\Sri Lanka.png" />
+    <Content Include="Icon\St Kitts &amp; Nevis.png" />
+    <Content Include="Icon\St Vincent &amp; the Grenadines.png" />
+    <Content Include="Icon\Sudan.png" />
+    <Content Include="Icon\Suriname.png" />
+    <Content Include="Icon\Swaziland.png" />
+    <Content Include="Icon\Sweden.png" />
+    <Content Include="Icon\Switzerland.png" />
+    <Content Include="Icon\Syria.png" />
+    <Content Include="Icon\Tahiti%28French Polinesia%29.png" />
+    <Content Include="Icon\Taiwan.png" />
+    <Content Include="Icon\Tajikistan.png" />
+    <Content Include="Icon\Tanzania.png" />
+    <Content Include="Icon\Thailand.png" />
+    <Content Include="Icon\Timor-Leste.png" />
+    <Content Include="Icon\Togo.png" />
+    <Content Include="Icon\Tonga.png" />
+    <Content Include="Icon\Trinidad &amp; Tobago.png" />
+    <Content Include="Icon\Tunisia.png" />
+    <Content Include="Icon\Turkey.png" />
+    <Content Include="Icon\Turkmenistan.png" />
+    <Content Include="Icon\Turks and Caicos Islands.png" />
+    <Content Include="Icon\Tuvalu.png" />
+    <Content Include="Icon\Uganda.png" />
+    <Content Include="Icon\Ukraine.png" />
+    <Content Include="Icon\United Arab Emirates.png" />
+    <Content Include="Icon\United Kingdom%28Great Britain%29.png" />
+    <Content Include="Icon\United Nations.png" />
+    <Content Include="Icon\United States of America%28USA%29.png" />
+    <Content Include="Icon\UnitedArabEmirates.png" />
+    <Content Include="Icon\UnitedKingdom.png" />
+    <Content Include="Icon\UnitedNations.png" />
+    <Content Include="Icon\UnitedStates.png" />
+    <Content Include="Icon\Uruguay.png" />
+    <Content Include="Icon\Uzbekistan.png" />
+    <Content Include="Icon\Vanutau.png" />
+    <Content Include="Icon\Vatican City.png" />
+    <Content Include="Icon\Venezuela.png" />
+    <Content Include="Icon\Viet Nam.png" />
+    <Content Include="Icon\Virgin Islands British.png" />
+    <Content Include="Icon\Virgin Islands US.png" />
+    <Content Include="Icon\Wales.png" />
+    <Content Include="Icon\Western Sahara.png" />
+    <Content Include="Icon\Yemen.png" />
+    <Content Include="Icon\Zambia.png" />
+    <Content Include="Icon\Zimbabwe.png" />
+    <Content Include="Owin DLL\Microsoft.Owin.dll" />
+    <Content Include="Owin DLL\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="Owin DLL\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="Owin DLL\Microsoft.Owin.Security.dll" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\Penpal.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ProfileImages\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\CoinbaseAdd\" />
+    <Folder Include="Views\Crypto\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Event\" />
+    <Folder Include="Views\Fiat\" />
+    <Folder Include="Views\Item\" />
+    <Folder Include="Views\Transaction\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PENPAL.DataStore\PENPAL.DataStore.csproj">
+      <Project>{A24C19F0-F17A-4B2D-AB52-7F47D680E4D6}</Project>
+      <Name>PENPAL.DataStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PENPAL.VM\PENPAL.VM.csproj">
+      <Project>{E76AAB05-0C20-48D9-8B6F-976034E34509}</Project>
+      <Name>PENPAL.VM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.SimpleNotificationService.3.3.0.23\analyzers\dotnet\cs\AWSSDK.SimpleNotificationService.CodeAnalysis.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11245</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11245/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

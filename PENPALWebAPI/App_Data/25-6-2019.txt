@@ -1,0 +1,20 @@
+=======================================================================================================
+=============                             Log Entry                    ================================
+========================================================================================================
+ Date      |    Status    | Error Occured(If Any)   | Operation Time   
+========================================================================================================
+
+25-06-2019|Error|192.168.9.133 Could not find any recognizable digits.    at System.ParseNumbers.StringToInt(String s, Int32 radix, Int32 flags, Int32* currPos)
+   at System.Convert.ToByte(String value, Int32 fromBase)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.<>c.<Decrypt>b__8_0(String s) in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at System.Array.ConvertAll[TInput,TOutput](TInput[] array, Converter`2 converter)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.Decrypt(String encryptedText) in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.RegisterUser(UserModel user) in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 40  System.FormatException|15:58:1
+========================================================================================================
+25-06-2019|Error|192.168.9.133 Could not find any recognizable digits.    at System.ParseNumbers.StringToInt(String s, Int32 radix, Int32 flags, Int32* currPos)
+   at System.Convert.ToByte(String value, Int32 fromBase)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.<>c.<Decrypt>b__8_0(String s) in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at System.Array.ConvertAll[TInput,TOutput](TInput[] array, Converter`2 converter)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.Decrypt(String encryptedText) in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.RegisterUser(UserModel user) in F:\Namritha\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 40  System.FormatException|15:59:6
+========================================================================================================

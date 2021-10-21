@@ -1,0 +1,27 @@
+=======================================================================================================
+=============                             Log Entry                    ================================
+========================================================================================================
+ Date      |    Status    | Error Occured(If Any)   | Operation Time   
+========================================================================================================
+
+19-03-2018|Error|192.168.0.131 Error reading JObject from JsonReader. Current JsonReader item is not an object: StartArray. Path '', line 1, position 1.    at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json)
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 847  Newtonsoft.Json.JsonReaderException|16:28:24
+========================================================================================================
+19-03-2018|Error|192.168.0.131 Unexpected character encountered while parsing value: S. Path '', line 0, position 0.    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json)
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 848  Newtonsoft.Json.JsonReaderException|16:42:8
+========================================================================================================
+19-03-2018|Error|192.168.0.131 Unexpected character encountered while parsing value: S. Path '', line 0, position 0.    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Linq.JObject.Load(JsonReader reader, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json, JsonLoadSettings settings)
+   at Newtonsoft.Json.Linq.JObject.Parse(String json)
+   at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 848  Newtonsoft.Json.JsonReaderException|16:42:12
+========================================================================================================
+19-03-2018|Error|192.168.0.131 Object reference not set to an instance of an object.    at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 850  System.NullReferenceException|17:16:20
+========================================================================================================

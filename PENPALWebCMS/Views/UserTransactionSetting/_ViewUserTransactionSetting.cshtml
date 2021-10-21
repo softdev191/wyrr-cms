@@ -1,0 +1,80 @@
+﻿
+@model PENPAL.VM.UserManagement.UserTransactionSettingModel
+
+@if (Model != null)
+{
+
+    <div class="box box-solid box-primary" style="margin-bottom:0px;">
+        <div class="box-header">
+            @if (Model.Id > 0)
+            {
+                <h3 class="box-title">
+                    View User Transaction Setting
+                </h3>
+            }
+
+        </div>
+        <div class="box-body" style="max-height:700px;overflow-y:auto;overflow-x:hidden">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(r => Model.Id)
+
+            <div class="row">
+                <div class="col-xs-6">
+
+
+                    <div class="row">
+                        <label for="txtSubCompany" class="control-label col-xs-4">Username</label>
+                        <div class="col-xs-8">
+
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "User Name", @readonly = "readonly" })
+                            <p>
+                                @Html.ValidationMessageFor(m => m.UserName)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <label for="txtSubCompany" class="control-label col-xs-4">Transaction Per Day</label>
+                            <div class="col-xs-8">
+
+                                @Html.TextBoxFor(m => m.TransactionPerDay, new { @class = "form-control", @placeholder = "Transaction Per Day ", @readonly = "readonly" })
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.TransactionPerDay)
+                                </p>
+                            </div>
+                        </div>
+
+                    <div class="row">
+                            <label for="txtSubCompany" class="control-label col-xs-4">Transaction Amount Per Day(In $)</label>
+                            <div class="col-xs-8">
+
+                                @Html.TextBoxFor(m => m.TransactionAmountPerDay, new { @class = "form-control", @placeholder = "Transaction Amount Per Day ", @readonly = "readonly" })
+                                <p>
+                                    @Html.ValidationMessageFor(m => m.TransactionAmountPerDay)
+                                </p>
+                            </div>
+                        </div>
+
+                    
+
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="box-footer">
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    @if (ViewBag.IsUpdate == true)
+                    {
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    }
+                    <a class="btn btn-default" data-popup-close="popup" href="#" onclick="ClosePopup();">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

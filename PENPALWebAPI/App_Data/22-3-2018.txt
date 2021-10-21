@@ -1,0 +1,8 @@
+=======================================================================================================
+=============                             Log Entry                    ================================
+========================================================================================================
+ Date      |    Status    | Error Occured(If Any)   | Operation Time   
+========================================================================================================
+
+22-03-2018|Error|192.168.0.131 Object reference not set to an instance of an object.    at PENPAL.DataStore.DataProviders.UserTransactionManagementProvider.<GetCurrencyPrice>d__9.MoveNext() in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserTransactionManagementProvider.cs:line 848  System.NullReferenceException|18:16:29
+========================================================================================================

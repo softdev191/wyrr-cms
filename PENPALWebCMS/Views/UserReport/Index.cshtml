@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="../Content/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/datepicker/datepicker.css" rel="stylesheet" type="text/css" />
+
+}
+
+<script src="../Scripts/jquery-2.2.3.js"></script>
+@Scripts.Render("~/bundles/useranalysis")
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        User Analysis
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index", "UserReport")"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">User Analysis</a></li>
+    </ol>
+</section>
+
+<div id="partialOrderView">
+
+</div>
+
+

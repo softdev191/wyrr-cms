@@ -1,0 +1,31 @@
+=======================================================================================================
+=============                             Log Entry                    ================================
+========================================================================================================
+ Date      |    Status    | Error Occured(If Any)   | Operation Time   
+========================================================================================================
+
+13-03-2018|Error|192.168.0.131 Object reference not set to an instance of an object.    at PENPAL.DataStore.DataProviders.UserManagementProvider.<>c__DisplayClass13_0.<ValidateUserName>b__0(mstUser userData) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 806
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.ValidateUserName(String username, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 805  System.NullReferenceException|16:58:26
+========================================================================================================
+13-03-2018|Error|192.168.0.131 Object reference not set to an instance of an object.    at PENPAL.DataStore.DataProviders.UserManagementProvider.<>c__DisplayClass13_0.<ValidateUserName>b__0(mstUser userData) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 806
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.ValidateUserName(String username, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 805  System.NullReferenceException|17:2:41
+========================================================================================================
+13-03-2018|Error|192.168.0.131 Object reference not set to an instance of an object.    at PENPAL.DataStore.DataProviders.UserManagementProvider.<>c__DisplayClass13_0.<ValidateUserName>b__0(mstUser userData) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 806
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.ValidateUserName(String username, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 805  System.NullReferenceException|17:12:54
+========================================================================================================
+13-03-2018|Error|192.168.0.131 Object reference not set to an instance of an object.    at PENPAL.DataStore.DataProviders.UserManagementProvider.<>c__DisplayClass13_0.<ValidateUserName>b__0(mstUser userData) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 806
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.ValidateUserName(String username, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 805  System.NullReferenceException|17:49:55
+========================================================================================================
+13-03-2018|Error|192.168.0.131 Object reference not set to an instance of an object.    at PENPAL.DataStore.DataProviders.UserManagementProvider.<>c__DisplayClass13_0.<ValidateUserName>b__0(mstUser userData) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 806
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.ValidateUserName(String username, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 805  System.NullReferenceException|18:44:29
+========================================================================================================

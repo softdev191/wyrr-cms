@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PENPALWebCMS", "PENPALWebCMS\PENPALWebCMS.csproj", "{8ECF3BE2-2DB4-4832-A655-93D5CF55809D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PENPALWebAPI", "PENPALWebAPI\PENPALWebAPI.csproj", "{8019E973-930E-49B3-A1E1-088C790E08B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PENPAL.DataStore", "PENPAL.DataStore\PENPAL.DataStore.csproj", "{A24C19F0-F17A-4B2D-AB52-7F47D680E4D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PENPAL.VM", "PENPAL.VM\PENPAL.VM.csproj", "{E76AAB05-0C20-48D9-8B6F-976034E34509}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8ECF3BE2-2DB4-4832-A655-93D5CF55809D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ECF3BE2-2DB4-4832-A655-93D5CF55809D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ECF3BE2-2DB4-4832-A655-93D5CF55809D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ECF3BE2-2DB4-4832-A655-93D5CF55809D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8019E973-930E-49B3-A1E1-088C790E08B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8019E973-930E-49B3-A1E1-088C790E08B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8019E973-930E-49B3-A1E1-088C790E08B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8019E973-930E-49B3-A1E1-088C790E08B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A24C19F0-F17A-4B2D-AB52-7F47D680E4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A24C19F0-F17A-4B2D-AB52-7F47D680E4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A24C19F0-F17A-4B2D-AB52-7F47D680E4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A24C19F0-F17A-4B2D-AB52-7F47D680E4D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E76AAB05-0C20-48D9-8B6F-976034E34509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E76AAB05-0C20-48D9-8B6F-976034E34509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E76AAB05-0C20-48D9-8B6F-976034E34509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E76AAB05-0C20-48D9-8B6F-976034E34509}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://codestack:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PENPAL.DataStore\\PENPAL.DataStore.csproj
+		SccProjectName1 = PENPAL.DataStore
+		SccLocalPath1 = PENPAL.DataStore
+		SccProjectUniqueName2 = PENPAL.VM\\PENPAL.VM.csproj
+		SccProjectName2 = PENPAL.VM
+		SccLocalPath2 = PENPAL.VM
+		SccProjectUniqueName3 = PENPALWebAPI\\PENPALWebAPI.csproj
+		SccProjectName3 = PENPALWebAPI
+		SccLocalPath3 = PENPALWebAPI
+		SccProjectUniqueName4 = PENPALWebCMS\\PENPALWebCMS.csproj
+		SccProjectName4 = PENPALWebCMS
+		SccLocalPath4 = PENPALWebCMS
+	EndGlobalSection
+EndGlobal

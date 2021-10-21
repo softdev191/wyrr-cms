@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="../Content/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/toastr.min.css" rel="stylesheet" type="text/css" />
+
+
+}
+
+<script src="../Scripts/jquery-2.2.3.js"></script>
+<script type="text/javascript" src="~/js/TransactionLog.js"></script>
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+       Log Transaction History
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index", "TransactionLog")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Log Transaction History</a></li>
+    </ol>
+</section>
+
+
+<!-- Main content -->
+<section class="content" style="height:100% !important">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+                <div class="box-header text-right">
+                    <div class="pull-right text-right pad">
+
+
+
+                    </div>
+                    <div class="box-title pull-left">
+                        @*<span id="pageTitle">@UserSession.Current.CompanyName</span>*@
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-12 table-responsive">
+                            <table cellpadding="0" cellspacing="0" border="0" id="grid" class="table table-bordered table-hover table-responsive" style="width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th width="7%">
+                                            Transaction ID
+                                        </th>
+                                        <th width="3%">
+                                           Transaction Type
+                                        </th>
+                                        
+                                        <th width="10%">
+                                           User Name
+                                        </th>
+                                        <th width="6%">
+                                           Transaction Date
+                                        </th>
+                                        <th width="7%">
+                                            Sender Address
+                                        </th>
+                                        <th width="7%">
+                                            Receiver Address
+                                        </th>
+                                        <th width="6%">
+                                            Amount Given
+                                        </th> 
+                                        <th width="6%">
+                                            Currency Given
+                                        </th>
+                                        <th width="6%">
+                                            Amount Received
+                                        </th>
+                                        <th width="6%">
+                                            Currency Received
+                                        </th>
+                                        <th width="6%">
+                                            Paypal Client Margin Amt
+                                        </th>
+                                        <th width="6%">
+                                            Paypal Margin Amt
+                                        </th>
+                                        <th width="6%">
+                                            Changelly Client Margin Amt
+                                        </th>
+                                        <th width="6%">
+                                            Changelly Margin Amt
+                                        </th>
+                                        <th width="6%">
+                                            Transaction Status
+                                        </th>
+                                       
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</section><!-- /.content -->
+
+
+<div class="popup" data-popup="popup">
+    <div class="popup-inner">
+        <div class="row">
+            <div id="partialContent" class="col-md-12">
+
+            </div><!--/.col (right) -->
+        </div>
+        <a class="popup-close" href="#" onclick="ClosePopup();">x</a>
+    </div>
+</div>

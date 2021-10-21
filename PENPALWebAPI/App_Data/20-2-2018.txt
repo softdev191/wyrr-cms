@@ -1,0 +1,70 @@
+=======================================================================================================
+=============                             Log Entry                    ================================
+========================================================================================================
+ Date      |    Status    | Error Occured(If Any)   | Operation Time   
+========================================================================================================
+
+20-02-2018|Error|192.168.0.131 Could not find any recognizable digits.    at System.ParseNumbers.StringToInt(String s, Int32 radix, Int32 flags, Int32* currPos)
+   at System.Convert.ToByte(String value, Int32 fromBase)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.<>c.<Decrypt>b__8_0(String s) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at System.Array.ConvertAll[TInput,TOutput](TInput[] array, Converter`2 converter)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.Decrypt(String encryptedText) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.Login(String PhoneNumber, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 259  System.FormatException|11:24:46
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Could not find any recognizable digits.    at System.ParseNumbers.StringToInt(String s, Int32 radix, Int32 flags, Int32* currPos)
+   at System.Convert.ToByte(String value, Int32 fromBase)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.<>c.<Decrypt>b__8_0(String s) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at System.Array.ConvertAll[TInput,TOutput](TInput[] array, Converter`2 converter)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.Decrypt(String encryptedText) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.Login(String PhoneNumber, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 259  System.FormatException|11:26:8
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Could not find any recognizable digits.    at System.ParseNumbers.StringToInt(String s, Int32 radix, Int32 flags, Int32* currPos)
+   at System.Convert.ToByte(String value, Int32 fromBase)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.<>c.<Decrypt>b__8_0(String s) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at System.Array.ConvertAll[TInput,TOutput](TInput[] array, Converter`2 converter)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.Decrypt(String encryptedText) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.Login(String PhoneNumber, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 259  System.FormatException|11:27:38
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Validate User <Login>d__1::MoveNext|14:34:32
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Login UserManagementProvider::Login|14:35:6
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Testing inside Login UserManagementProvider::Login|14:35:10
+========================================================================================================
+20-02-2018|Error|192.168.0.131 System.Data.Entity.DynamicProxies.mstUser_89E08DA703F81784BD07C226E7B983205995DF010BB65D6B0D2E78BDE81D215E UserManagementProvider::Login|14:35:27
+========================================================================================================
+20-02-2018|Error|192.168.0.131 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|14:35:29
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Function Validate User Called NL <Login>d__1::MoveNext|14:50:5
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Validate User <Login>d__1::MoveNext|14:50:5
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Function Login Called UserManagementProvider::Login|14:50:6
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Login UserManagementProvider::Login|14:50:6
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Testing inside Login UserManagementProvider::Login|14:50:7
+========================================================================================================
+20-02-2018|Error|192.168.0.131 System.Data.Entity.DynamicProxies.mstUser_89E08DA703F81784BD07C226E7B983205995DF010BB65D6B0D2E78BDE81D215E UserManagementProvider::Login|14:50:8
+========================================================================================================
+20-02-2018|Error|192.168.0.131 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|14:50:8
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Function Validate User Called NL <Login>d__1::MoveNext|14:56:44
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Validate User <Login>d__1::MoveNext|14:56:46
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Function Login Called UserManagementProvider::Login|14:56:51
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Login UserManagementProvider::Login|14:56:53
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Testing inside Login UserManagementProvider::Login|14:56:55
+========================================================================================================
+20-02-2018|Error|192.168.0.131 Could not find any recognizable digits.    at System.ParseNumbers.StringToInt(String s, Int32 radix, Int32 flags, Int32* currPos)
+   at System.Convert.ToByte(String value, Int32 fromBase)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.<>c.<Decrypt>b__8_0(String s) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at System.Array.ConvertAll[TInput,TOutput](TInput[] array, Converter`2 converter)
+   at PENPAL.DataStore.Utility.EncryptDecrypt.Decrypt(String encryptedText) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\Utility\EncryptDecrypt.cs:line 152
+   at PENPAL.DataStore.DataProviders.UserManagementProvider.Login(String PhoneNumber, String Password) in D:\BlockChain\WYRR\WYRR_code\201710-001-WYRR\Trunk\PENPAL.DataStore\DataProviders\UserManagementProvider.cs:line 261  System.FormatException|14:57:26
+========================================================================================================
+20-02-2018|Error|192.168.0.131 PENPAL.DataStore.APIModel.UserValidationAPIModel <Login>d__1::MoveNext|14:57:26
+========================================================================================================
